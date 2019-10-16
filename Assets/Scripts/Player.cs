@@ -80,6 +80,8 @@ public class Player : MonoBehaviour
 
 		input.ShootControl.Rotation.performed += ctx => activeMech.Rotate(ctx.ReadValue<Vector2>());
 		input.ShootControl.Rotation.canceled += ctx => activeMech.Rotate(new Vector2());
-		input.ShootControl.Shoot.performed += ctx => activeMech.Grow();
+
+		input.ShootControl.Shoot.started += ctx => activeMech.SetFiringState(true);
+		input.ShootControl.Shoot.canceled += ctx => activeMech.SetFiringState(false);
 	}
 }

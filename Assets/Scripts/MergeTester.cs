@@ -15,7 +15,7 @@ public class MergeTester : MonoBehaviour
 		MechController purpleMechController = purpleMech.GetComponent<MechController>();
 
 
-		float random = Random.Range(0, 1);
+		float random = Random.Range(0f, 1f);
 		if (random > 0.5f)
 		{
 			player1.AssignNewMech(purpleMechController, Player.MechControl.Movement);
