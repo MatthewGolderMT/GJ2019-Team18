@@ -46,7 +46,7 @@ public class BulletPattern : MonoBehaviour
         if (_data.ChangesPattern)
         {
             _timeToChangePattern += Time.deltaTime;
-            if (_timeToChangePattern > 1f)
+            if (_timeToChangePattern > _data.ChangesPeriod)
             {
                 int currentPatternIdx = (int)_data.Pattern;
                 currentPatternIdx++;

@@ -5,4 +5,5 @@ using UnityEngine;
 public class WaveData : ScriptableObject
 {
     [SerializeField] public List<WaveGroupData> WaveGroups = new List<WaveGroupData>();
+    [SerializeField] public WaveGroupData BossGroup = null;
 }

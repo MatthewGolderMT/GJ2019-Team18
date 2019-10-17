@@ -12,6 +12,7 @@ public class EnemySpawnController : MonoBehaviour
     public enum State { AllClear, Spawning, FinishedSpawning, Completed }
     private State _currentState = State.AllClear;
     private int _currentWaveIndex = 0;
+    private float _bossMobSpawnWait = 0f;
     private List<GameObject> _enemiesGO = new List<GameObject>();
     private List<Enemy> _enemiesData = new List<Enemy>();
 
@@ -58,6 +59,16 @@ public class EnemySpawnController : MonoBehaviour
                 break;
             }
         }
+
+        if (IsLastEnemyBoss && _currentState == State.Spawning && _currentState == State.FinishedSpawning)
+        {
+            _bossMobSpawnWait += Time.deltaTime;
+            if (_bossMobSpawnWait > 3f)
+            {
+                CurrentWave.SpawnBossMobs();
+                _bossMobSpawnWait = 0f;
+            }
+        }
     }
 
     private void StartNextWave()
@@ -90,5 +101,31 @@ public class EnemySpawnController : MonoBehaviour
     private bool EnemiesAlive
     {
         get { return _enemiesData.Exists(x => (!x.IsDead)); }
+    }
+
+    private bool EnemyBossIsAlive
+    {
+        get { return _enemiesData.Exists(x => (!x.IsDead && x.IsBoss)); }
+    }
+
+    private bool IsLastEnemyBoss
+    {
+        get { return EnemyAliveCount == 1 && EnemyBossIsAlive; }
+    }
+
+    private int EnemyAliveCount
+    {
+        get 
+        {
+            int count = 0;
+            foreach(var enemy in _enemiesData)
+            {
+                if (!enemy.IsDead)
+                {
+                    count++;
+                }
+            }
+            return count;
+        }
     }
 }

@@ -21,6 +21,11 @@ public class Wave : MonoBehaviour
         _currentIteration = 0;
     }
 
+    public void SpawnBossMobs()
+    {
+        AddBossGroup();
+    }
+
     public void Update()
     {
         switch (_currentState)
@@ -55,17 +60,27 @@ public class Wave : MonoBehaviour
 
     private void AddNextGroup()
     {
-        _spawnDelay = _data.WaveGroups[_currentIteration].TotalSpawnDelay;
+        AddGroup(_data.WaveGroups[_currentIteration]);
+    }
+
+    private void AddBossGroup()
+    {
+        AddGroup(_data.BossGroup);
+    }
+
+    private void AddGroup(WaveGroupData group)
+    {
+        _spawnDelay = group.TotalSpawnDelay;
 
         Vector3 pos = Vector3.zero;
 
-        for (int i = 0; i < _data.WaveGroups[_currentIteration].Enemies.Count; ++i)
+        for (int i = 0; i < group.Enemies.Count; ++i)
         {
             float rand = Random.Range(-10, 10);
 
-            var enemy = _data.WaveGroups[_currentIteration].Enemies[i];
+            var enemy = group.Enemies[i];
 
-            switch (_data.WaveGroups[_currentIteration].Spawn)
+            switch (group.Spawn)
             {
                 case WaveGroupData.SpawnSide.Left:
                 {
@@ -89,7 +104,7 @@ public class Wave : MonoBehaviour
                 }
             }
 
-            float delay = _data.WaveGroups[_currentIteration].SpawnDelay * i;
+            float delay = group.SpawnDelay * i;
             StartCoroutine(_spawnController.AddEnemy(enemy, pos, delay));
         }
     }
