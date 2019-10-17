@@ -15,4 +15,5 @@ MonoBehaviour:
   WaveGroups:
   - {fileID: 11400000, guid: 199a9b5465072244ebdabe8b2128a5d1, type: 2}
   - {fileID: 11400000, guid: e8e37e368a4a18848a900da34e42a955, type: 2}
-  SpawnController: {fileID: 0}
+  - {fileID: 11400000, guid: e8e37e368a4a18848a900da34e42a955, type: 2}
+  BossGroup: {fileID: 0}

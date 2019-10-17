@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 969577652bbf4264aa28fe034d9ada84, type: 3}
-  m_Name: Wave 5
+  m_Name: Wave Boss
   m_EditorClassIdentifier: 
   WaveGroups:
-  - {fileID: 11400000, guid: d94f2ad17bf1f9245900753c79ed78e5, type: 2}
-  - {fileID: 11400000, guid: d94f2ad17bf1f9245900753c79ed78e5, type: 2}
-  SpawnController: {fileID: 0}
+  - {fileID: 11400000, guid: 199a9b5465072244ebdabe8b2128a5d1, type: 2}
+  - {fileID: 11400000, guid: e8e37e368a4a18848a900da34e42a955, type: 2}
+  - {fileID: 11400000, guid: e8e37e368a4a18848a900da34e42a955, type: 2}
+  - {fileID: 11400000, guid: 087b1666e54696d4fb833a1332590b31, type: 2}
+  BossGroup: {fileID: 11400000, guid: 3ebd709a3321cc24094ed908c5e5c65b, type: 2}

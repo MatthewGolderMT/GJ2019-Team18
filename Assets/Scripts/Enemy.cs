@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -9,6 +10,7 @@ public class Enemy : MonoBehaviour
     private Vector3 _targetPos = Vector3.zero;
     private Transform _targetTransform = null;
     private int _currentHealth = 20;
+    private int _colourChangeCounter = 0;
     private int _currentTragetIdx = 0;
     private float kMinDist = 0.1f;
 
@@ -25,59 +27,6 @@ public class Enemy : MonoBehaviour
         else
         {
             _targetTransform = MechFactory.Instance.GetRandomActiveMech();
-        }
-
-        switch (_data.Colour)
-        {
-            case MechController.MechColour.Red:
-            {
-                Color col = Color.white;
-                ColorUtility.TryParseHtmlString("#ed1b24ff", out col);
-                Sprite.color = col;
-                break;
-            }
-            case MechController.MechColour.Blue:
-            {
-                    Color col = Color.white;
-                    ColorUtility.TryParseHtmlString("#2e3192ff", out col);
-                    Sprite.color = col;
-                    break;
-            }
-            case MechController.MechColour.Yellow:
-            {
-                    Color col = Color.white;
-                    ColorUtility.TryParseHtmlString("#f2e405ff", out col);
-                    Sprite.color = col;
-                    break;
-            }
-            case MechController.MechColour.Purple:
-            {
-                    Color col = Color.white;
-                    ColorUtility.TryParseHtmlString("#92278fff", out col);
-                    Sprite.color = col;
-                    break;
-            }
-            case MechController.MechColour.Orange:
-            {
-                    Color col = Color.white;
-                    ColorUtility.TryParseHtmlString("#f37521ff", out col);
-                    Sprite.color = col;
-                    break;
-            }
-            case MechController.MechColour.Green:
-            {
-                    Color col = Color.white;
-                    ColorUtility.TryParseHtmlString("#1ab359ff", out col);
-                    Sprite.color = col;
-                    break;
-            }
-            case MechController.MechColour.Rainbow:
-            {
-                    Color col = Color.white;
-                    ColorUtility.TryParseHtmlString("#ed1b24ff", out col);
-                    Sprite.color = col;
-                    break;
-            }
         }
     }
 
@@ -124,6 +73,80 @@ public class Enemy : MonoBehaviour
             {
                 transform.position = Vector2.MoveTowards(transform.position, _targetPos, _data.Speed * Time.deltaTime);
             }
+        }
+    }
+
+    private void ApplyColour()
+    {
+        switch (_data.Colour)
+        {
+            case MechController.MechColour.Red:
+            {
+                Color col = Color.white;
+                ColorUtility.TryParseHtmlString("#ed1b24ff", out col);
+                Sprite.color = col;
+                break;
+            }
+            case MechController.MechColour.Blue:
+            {
+                Color col = Color.white;
+                ColorUtility.TryParseHtmlString("#2e3192ff", out col);
+                Sprite.color = col;
+                break;
+            }
+            case MechController.MechColour.Yellow:
+            {
+                Color col = Color.white;
+                ColorUtility.TryParseHtmlString("#f2e405ff", out col);
+                Sprite.color = col;
+                break;
+            }
+            case MechController.MechColour.Purple:
+            {
+                Color col = Color.white;
+                ColorUtility.TryParseHtmlString("#92278fff", out col);
+                Sprite.color = col;
+                break;
+            }
+            case MechController.MechColour.Orange:
+            {
+                Color col = Color.white;
+                ColorUtility.TryParseHtmlString("#f37521ff", out col);
+                Sprite.color = col;
+                break;
+            }
+            case MechController.MechColour.Green:
+            {
+                Color col = Color.white;
+                ColorUtility.TryParseHtmlString("#1ab359ff", out col);
+                Sprite.color = col;
+                break;
+            }
+            case MechController.MechColour.Rainbow:
+            {
+                Color col = Color.white;
+                ColorUtility.TryParseHtmlString("#ed1b24ff", out col);
+                Sprite.color = col;
+                break;
+            }
+        }
+    }
+
+    public void DoDamage()
+    {
+        _currentHealth--;
+        _colourChangeCounter++;
+        if (_colourChangeCounter >= 10)
+        {
+            int colIdx = (int)_data.Colour;
+            colIdx++;
+            if (colIdx >= Enum.GetNames(typeof(MechController.MechColour)).Length-1)
+            {
+                colIdx = 0;
+            }
+            _data.Colour = (MechController.MechColour)colIdx;
+            ApplyColour();
+            _colourChangeCounter = 0;
         }
     }
 

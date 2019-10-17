@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Enemy Data", menuName = "Enemy Data", order = 52)]
 public class EnemyData : ScriptableObject
 {
-    [SerializeField] public bool IsBoss = true;
+    [SerializeField] public bool IsBoss = false;
     [SerializeField] public bool FollowsPlayer = true;
     [SerializeField] public List<Vector2> MovePoints = new List<Vector2>();
     [SerializeField] public bool ChangesPattern = false;
