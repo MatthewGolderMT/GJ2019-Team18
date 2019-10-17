@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3722171606720869317
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3722171606720869370}
+  - component: {fileID: 3722171606720869371}
+  - component: {fileID: 3722171606720869316}
+  - component: {fileID: 3776415671968176704}
+  m_Layer: 5
+  m_Name: EnemySpawnController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3722171606720869370
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3722171606720869317}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!222 &3722171606720869371
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3722171606720869317}
+  m_CullTransparentMesh: 0
+--- !u!114 &3722171606720869316
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3722171606720869317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7930b088dd6fc704db9c60fd01eeef98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Waves:
+  - {fileID: 11400000, guid: 22e4a129041a9e546972b70717ab03a0, type: 2}
+  - {fileID: 11400000, guid: 4bd1cd13b3aa677449a9674d129a99ad, type: 2}
+  - {fileID: 11400000, guid: 0cd331e661447b549828b87887925217, type: 2}
+  - {fileID: 11400000, guid: 6af4fd3ffad85c0478c42520f2e718e5, type: 2}
+  - {fileID: 11400000, guid: 2fa34686b153e7044b7c6fd6466ad540, type: 2}
+  CurrentWave: {fileID: 3776415671968176704}
+  EnemyPrefab: {fileID: 5468351446411252170, guid: af82a271af1df684cb1855e5564389c5,
+    type: 3}
+--- !u!114 &3776415671968176704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3722171606720869317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9a69072d6abcfd41af163c577707e6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
