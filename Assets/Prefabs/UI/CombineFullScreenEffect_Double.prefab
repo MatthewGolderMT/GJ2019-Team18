@@ -161,7 +161,6 @@ GameObject:
   - component: {fileID: 6715093997106344052}
   - component: {fileID: 6715093997106344054}
   - component: {fileID: 6715093997106344053}
-  - component: {fileID: 8414263073652172377}
   m_Layer: 0
   m_Name: TopCut
   m_TagString: Untagged
@@ -227,25 +226,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &8414263073652172377
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6715093997106344051}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 5902312e8d2cd8b4187d89306a542475, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6715093997230103603
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,8 +237,9 @@ GameObject:
   - component: {fileID: 6715093997230103604}
   - component: {fileID: 6715093997230103606}
   - component: {fileID: 6715093997230103605}
+  - component: {fileID: 1636995648581258529}
   m_Layer: 0
-  m_Name: CombineFullScreenEffect
+  m_Name: CombineFullScreenEffect_Double
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -323,6 +304,25 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &1636995648581258529
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6715093997230103603}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d8292e2afee8068418f1a28bfc30c130, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &6715093997632092403
 GameObject:
   m_ObjectHideFlags: 0
@@ -666,7 +666,6 @@ GameObject:
   - component: {fileID: 6715093998697229601}
   - component: {fileID: 6715093998697229603}
   - component: {fileID: 6715093998697229602}
-  - component: {fileID: 2056507065693371261}
   m_Layer: 0
   m_Name: BottomCut
   m_TagString: Untagged
@@ -732,22 +731,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!95 &2056507065693371261
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6715093998697229600}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 762aa4f4f5ab05a4cb5e009b8f279011, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
