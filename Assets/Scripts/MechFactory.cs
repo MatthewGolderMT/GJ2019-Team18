@@ -13,6 +13,9 @@ public class MechFactory : Singleton<MechFactory>
 	public GameObject GreenMech;
 	public GameObject RainbowMech;
 
+	public delegate void MergeEvent(List<Transform> oldMechs, Transform newMech);
+	public static event MergeEvent MergedMechs;
+
 	private List<MechColour> _activeMechColours;
 
 	private void OnEnable()
@@ -48,6 +51,7 @@ public class MechFactory : Singleton<MechFactory>
 				AssignSecondaryMechControls(PurpleMech, m1, m2);
 				HideMech(RedMech);
 				HideMech(BlueMech);
+				SendMergeUpdate(m1.transform, m2.transform, PurpleMech.transform);
 			}
 			else if (newMechColour == MechColour.Orange)
 			{
@@ -55,6 +59,8 @@ public class MechFactory : Singleton<MechFactory>
 				AssignSecondaryMechControls(OrangeMech, m1, m2);
 				HideMech(RedMech);
 				HideMech(YellowMech);
+				SendMergeUpdate(m1.transform, m2.transform, OrangeMech.transform);
+
 			}
 			else if (newMechColour == MechColour.Green)
 			{
@@ -62,6 +68,8 @@ public class MechFactory : Singleton<MechFactory>
 				AssignSecondaryMechControls(GreenMech, m1, m2);
 				HideMech(BlueMech);
 				HideMech(YellowMech);
+				SendMergeUpdate(m1.transform, m2.transform, GreenMech.transform);
+
 			}
 			else if (newMechColour == MechColour.Rainbow)
 			{
@@ -73,6 +81,8 @@ public class MechFactory : Singleton<MechFactory>
 				HideMech(GreenMech);
 				HideMech(OrangeMech);
 				HideMech(PurpleMech);
+				SendMergeUpdate(m1.transform, m2.transform, RainbowMech.transform);
+
 			}
 
 			m1.SetMergingState(false);
@@ -81,6 +91,16 @@ public class MechFactory : Singleton<MechFactory>
 			_activeMechColours.Add(newMechColour);
 			_activeMechColours.Remove(m1.mechColour);
 			_activeMechColours.Remove(m2.mechColour);
+		}
+	}
+
+	private void SendMergeUpdate(Transform oldMech1, Transform oldMech2, Transform newMech)
+	{
+		List<Transform> oldMechTransforms = new List<Transform>(2) { oldMech1, oldMech2 };
+
+		if (MergedMechs != null)
+		{
+			MergedMechs(oldMechTransforms, newMech);
 		}
 	}
 
@@ -205,6 +225,7 @@ public class MechFactory : Singleton<MechFactory>
 		//create lower level mechs
 		//assign controls
 		//remove upper level mech
+
 
 	}
 
