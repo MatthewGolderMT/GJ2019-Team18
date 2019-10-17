@@ -8,11 +8,13 @@ public class Player : MonoBehaviour
 	public enum MechControl { Full, Movement, Shoot }
 
 	public MechController activeMech;
+	public MechController startingMech;
 	private PlayerControls input;
 	private PlayerInput _playerInput;
 
 	private void Awake()
 	{
+		startingMech = activeMech;
 		input = new PlayerControls();
 
 		//player input can handle the device assignment, but we need to set it to match our control scheme
@@ -36,6 +38,11 @@ public class Player : MonoBehaviour
 		input.MovementControl.Disable();
 		input.ShootControl.Disable();
 		input.MergeControl.Disable();
+	}
+
+	public void AssignStartingMech()
+	{
+		AssignNewMech(startingMech, MechControl.Full);
 	}
 
 	public void AssignNewMech(MechController mech, MechControl control)
@@ -88,6 +95,9 @@ public class Player : MonoBehaviour
 
 		input.MergeControl.Merge.started += ctx => activeMech.SetMergingState(true);
 		input.MergeControl.Merge.canceled += ctx => activeMech.SetMergingState(false);
+
+		input.MergeControl.Disband.started += ctx => activeMech.IncrementDisbandingPlayers(1);
+		input.MergeControl.Disband.canceled += ctx => activeMech.IncrementDisbandingPlayers(-1);
 
 	}
 }

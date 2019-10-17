@@ -8,8 +8,11 @@ public class MechController : MonoBehaviour
 {
 	public enum MechColour { Red, Blue, Yellow, Purple, Orange, Green, Rainbow }
 
+	public delegate void DisbandEvent(MechController mech1);
+	public static event DisbandEvent DisbandMech;
+
 	public MechColour mechColour;
-	public Player player;
+	public List<Player> players;//first player is default
 	public float Speed = 5f;
 	public Transform BulletSpawnPosition;
 	public GameObject BulletTemplate;
@@ -21,6 +24,13 @@ public class MechController : MonoBehaviour
 	private Vector2 _lookDirection;
 	private float _timeSinceLastFire;
 	private bool _firing;
+	private int _disbandingPlayerCount;
+
+
+	private void OnDisable()
+	{
+		_move = new Vector2();
+	}
 
 	private void Update()
 	{
@@ -41,6 +51,33 @@ public class MechController : MonoBehaviour
 				Fire();
 			}
 		}
+
+		//handle mech seperation
+
+		if (_disbandingPlayerCount == 2)
+		{
+			if (mechColour == MechColour.Purple || mechColour == MechColour.Orange || mechColour == MechColour.Green)
+			{
+				if (DisbandMech != null)
+				{
+					DisbandMech(this);
+					_disbandingPlayerCount = 0;
+				}
+			}
+		}
+		else if (_disbandingPlayerCount == 3)
+		{
+			if (mechColour == MechColour.Rainbow)
+			{
+				if (DisbandMech != null)
+				{
+					DisbandMech(this);
+					_disbandingPlayerCount = 0;
+
+				}
+			}
+		}
+
 
 	}
 
@@ -69,6 +106,11 @@ public class MechController : MonoBehaviour
 		{
 			MergeCircle.SetActive(false);
 		}
+	}
+
+	public void IncrementDisbandingPlayers(int amount)
+	{
+		_disbandingPlayerCount += amount;
 	}
 
 	private void Fire()
