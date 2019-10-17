@@ -11,6 +11,7 @@ public class MechFactory : MonoBehaviour
 	public GameObject PurpleMech;
 	public GameObject OrangeMech;
 	public GameObject GreenMech;
+	public GameObject RainbowMech;
 
 	private List<MechColour> _activeMechColours;
 
@@ -61,6 +62,17 @@ public class MechFactory : MonoBehaviour
 				HideMech(BlueMech);
 				HideMech(YellowMech);
 			}
+			else if (newMechColour == MechColour.Rainbow)
+			{
+				ShowMech(RainbowMech, spawnPosition);
+				AssignTertiaryMechControls(m1, m2);
+				HideMech(BlueMech);
+				HideMech(YellowMech);
+				HideMech(RedMech);
+				HideMech(GreenMech);
+				HideMech(OrangeMech);
+				HideMech(PurpleMech);
+			}
 
 			m1.SetMergingState(false);
 			m2.SetMergingState(false);
@@ -109,7 +121,29 @@ public class MechFactory : MonoBehaviour
 		//remove old players
 		m1.players = new List<Player>(3);
 		m2.players = new List<Player>(3);
+	}
 
+	//should just be used for rainbow
+	private void AssignTertiaryMechControls(MechController m1, MechController m2)
+	{
+		MechController mechController = RainbowMech.GetComponent<MechController>();
+		List<Player> players = new List<Player>(3);
+		players.AddRange(m1.players);
+		players.AddRange(m2.players);
+
+		//TODO: Randomise role assignments
+		//all playes need to be assigned a new mech with a role
+		players[0].AssignNewMech(mechController, Player.MechControl.Shoot);
+		players[1].AssignNewMech(mechController, Player.MechControl.Shoot);
+		players[2].AssignNewMech(mechController, Player.MechControl.Movement);
+
+		//give rainbow mech it's new players
+		mechController.players = players;
+
+		//remove old players
+		//remove old players
+		m1.players = new List<Player>(3);
+		m2.players = new List<Player>(3);
 	}
 
 	private void DisbandMech(MechController mech)
@@ -147,7 +181,19 @@ public class MechFactory : MonoBehaviour
 			_activeMechColours.Add(MechColour.Blue);
 			_activeMechColours.Add(MechColour.Yellow);
 		}
+		else if (mech.mechColour == MechColour.Rainbow)
+		{
+			HideMech(RainbowMech);
+			ShowMech(YellowMech, oldMechPos + new Vector2(-1, 0));
+			ShowMech(BlueMech, oldMechPos + new Vector2(1, 0));
+			ShowMech(RedMech, oldMechPos + new Vector2(0, 1));
 
+			_activeMechColours.Remove(MechColour.Rainbow);
+			_activeMechColours.Add(MechColour.Blue);
+			_activeMechColours.Add(MechColour.Yellow);
+			_activeMechColours.Add(MechColour.Red);
+
+		}
 		//reassign controls
 		foreach (Player player in mech.players)
 		{

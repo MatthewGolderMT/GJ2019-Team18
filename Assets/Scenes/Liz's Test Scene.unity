@@ -576,7 +576,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &845334156
 GameObject:
@@ -1108,6 +1108,111 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1001 &1154056953
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8768808017998174389, guid: bcedcad45d6174c8d84c9984eec845f9,
+        type: 3}
+      propertyPath: m_Name
+      value: RainbowMech
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768808017998174378, guid: bcedcad45d6174c8d84c9984eec845f9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.95
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768808017998174378, guid: bcedcad45d6174c8d84c9984eec845f9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768808017998174378, guid: bcedcad45d6174c8d84c9984eec845f9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768808017998174378, guid: bcedcad45d6174c8d84c9984eec845f9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768808017998174378, guid: bcedcad45d6174c8d84c9984eec845f9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768808017998174378, guid: bcedcad45d6174c8d84c9984eec845f9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768808017998174378, guid: bcedcad45d6174c8d84c9984eec845f9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768808017998174378, guid: bcedcad45d6174c8d84c9984eec845f9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768808017998174378, guid: bcedcad45d6174c8d84c9984eec845f9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768808017998174378, guid: bcedcad45d6174c8d84c9984eec845f9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768808017998174378, guid: bcedcad45d6174c8d84c9984eec845f9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768808016374890283, guid: bcedcad45d6174c8d84c9984eec845f9,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768808016374890283, guid: bcedcad45d6174c8d84c9984eec845f9,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768808016374890283, guid: bcedcad45d6174c8d84c9984eec845f9,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768808017409250473, guid: bcedcad45d6174c8d84c9984eec845f9,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768808017409250473, guid: bcedcad45d6174c8d84c9984eec845f9,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768808017409250473, guid: bcedcad45d6174c8d84c9984eec845f9,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bcedcad45d6174c8d84c9984eec845f9, type: 3}
+--- !u!1 &1154056954 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8768808017998174389, guid: bcedcad45d6174c8d84c9984eec845f9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1154056953}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1192885840 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2623743633632147918, guid: 0b9b2c18fe6dd47ebbf724d999e88f0f,
@@ -1287,6 +1392,7 @@ MonoBehaviour:
   PurpleMech: {fileID: 1655043400}
   OrangeMech: {fileID: 1192885840}
   GreenMech: {fileID: 20277891}
+  RainbowMech: {fileID: 1154056954}
 --- !u!4 &1375410494
 Transform:
   m_ObjectHideFlags: 0

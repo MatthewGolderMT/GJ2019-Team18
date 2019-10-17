@@ -217,6 +217,17 @@ public class PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Disband"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""783e3c28-2839-42bb-bdc7-fe1622906d9c"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Disband"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }

@@ -53,19 +53,7 @@ public class MechController : MonoBehaviour
 		}
 
 		//handle mech seperation
-
-		if (_disbandingPlayerCount == 2)
-		{
-			if (mechColour == MechColour.Purple || mechColour == MechColour.Orange || mechColour == MechColour.Green)
-			{
-				if (DisbandMech != null)
-				{
-					DisbandMech(this);
-					_disbandingPlayerCount = 0;
-				}
-			}
-		}
-		else if (_disbandingPlayerCount == 3)
+		if (_disbandingPlayerCount == 3)
 		{
 			if (mechColour == MechColour.Rainbow)
 			{
@@ -77,6 +65,18 @@ public class MechController : MonoBehaviour
 				}
 			}
 		}
+		else if (_disbandingPlayerCount == 2)
+		{
+			if (mechColour == MechColour.Purple || mechColour == MechColour.Orange || mechColour == MechColour.Green)
+			{
+				if (DisbandMech != null)
+				{
+					DisbandMech(this);
+					_disbandingPlayerCount = 0;
+				}
+			}
+		}
+
 
 
 	}
