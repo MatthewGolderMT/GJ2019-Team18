@@ -61,7 +61,7 @@ public class Wave : MonoBehaviour
 
         for (int i = 0; i < _data.WaveGroups[_currentIteration].Enemies.Count; ++i)
         {
-            float rand = 0;// Random.Range(-10, 10);
+            float rand = Random.Range(-10, 10);
 
             var enemy = _data.WaveGroups[_currentIteration].Enemies[i];
 
