@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using static MechController;
 
-public class MechFactory : MonoBehaviour
+public class MechFactory : Singleton<MechFactory>
 {
 	public GameObject RedMech;
 	public GameObject BlueMech;
@@ -27,8 +27,9 @@ public class MechFactory : MonoBehaviour
 		MechController.DisbandMech -= DisbandMech;
 	}
 
-	private void Awake()
+	protected override void Awake()
 	{
+		base.Awake();
 		_activeMechColours = new List<MechColour>();
 		_activeMechColours.Add(MechColour.Red);
 		_activeMechColours.Add(MechColour.Yellow);
@@ -204,55 +205,105 @@ public class MechFactory : MonoBehaviour
 		//create lower level mechs
 		//assign controls
 		//remove upper level mech
+
+	}
+
+	private void PrintActiveMechs()
+	{
+		string result = string.Empty;
+		foreach (MechColour colour in _activeMechColours)
+		{
+			result += (" " + colour);
+		}
+		Debug.Log(result);
+	}
+
+	public Transform GetRandomActiveMech()
+	{
+		int randomIndex = Random.Range(0, _activeMechColours.Count);
+		MechColour randomMechColour = _activeMechColours[randomIndex];
+		Transform mechTransform = null;
+		switch (randomMechColour)
+		{
+			case MechColour.Blue:
+				mechTransform = BlueMech.transform;
+				break;
+			case MechColour.Red:
+				mechTransform = RedMech.transform;
+				break;
+			case MechColour.Yellow:
+				mechTransform = YellowMech.transform;
+				break;
+			case MechColour.Purple:
+				mechTransform = PurpleMech.transform;
+				break;
+			case MechColour.Orange:
+				mechTransform = OrangeMech.transform;
+				break;
+			case MechColour.Green:
+				mechTransform = GreenMech.transform;
+				break;
+			case MechColour.Rainbow:
+				mechTransform = RainbowMech.transform;
+				break;
+			default:
+				Debug.LogError("Tried to get random mech but did not recognise the colour: " + randomMechColour);
+				break;
+		}
+		return mechTransform;
 	}
 
 	private MechColour GetMergedMechColour(MechController m1, MechController m2)
 	{
 		MechColour mechColour = MechColour.Red;
-		switch (m1.mechColour)
+
+		if (m1.mechColour == MechColour.Purple || m1.mechColour == MechColour.Orange || m1.mechColour == MechColour.Green ||
+			m2.mechColour == MechColour.Purple || m2.mechColour == MechColour.Orange || m2.mechColour == MechColour.Green)
 		{
-			case MechController.MechColour.Red:
-				if (m2.mechColour == MechController.MechColour.Blue)
-				{
-					mechColour = MechColour.Purple;
+			mechColour = MechColour.Rainbow;
+		}
+		else
+		{
 
-				}
-				else if (m2.mechColour == MechController.MechColour.Yellow)
-				{
-					mechColour = MechColour.Orange;
-				}
-				break;
-			case MechController.MechColour.Blue:
-				if (m2.mechColour == MechController.MechColour.Red)
-				{
-					mechColour = MechColour.Purple;
+			switch (m1.mechColour)
+			{
+				case MechController.MechColour.Red:
+					if (m2.mechColour == MechController.MechColour.Blue)
+					{
+						mechColour = MechColour.Purple;
 
-				}
-				else if (m2.mechColour == MechController.MechColour.Yellow)
-				{
-					mechColour = MechColour.Green;
-				}
-				break;
-			case MechController.MechColour.Yellow:
-				if (m2.mechColour == MechController.MechColour.Blue)
-				{
-					mechColour = MechColour.Green;
-				}
-				else if (m2.mechColour == MechController.MechColour.Red)
-				{
-					mechColour = MechColour.Orange;
-				}
-				break;
-			case MechController.MechColour.Purple:
-			case MechController.MechColour.Orange:
-			case MechController.MechColour.Green:
+					}
+					else if (m2.mechColour == MechController.MechColour.Yellow)
+					{
+						mechColour = MechColour.Orange;
+					}
+					break;
+				case MechController.MechColour.Blue:
+					if (m2.mechColour == MechController.MechColour.Red)
+					{
+						mechColour = MechColour.Purple;
 
-				mechColour = MechColour.Rainbow;
-				break;
-			default:
-				Debug.LogError("Failed to get correct mech colour combination!!! making a second red");
-				mechColour = MechColour.Red;
-				break;
+					}
+					else if (m2.mechColour == MechController.MechColour.Yellow)
+					{
+						mechColour = MechColour.Green;
+					}
+					break;
+				case MechController.MechColour.Yellow:
+					if (m2.mechColour == MechController.MechColour.Blue)
+					{
+						mechColour = MechColour.Green;
+					}
+					else if (m2.mechColour == MechController.MechColour.Red)
+					{
+						mechColour = MechColour.Orange;
+					}
+					break;
+				default:
+					Debug.LogError("Failed to get correct mech colour combination!!! making a second red");
+					mechColour = MechColour.Red;
+					break;
+			}
 		}
 
 		return mechColour;
