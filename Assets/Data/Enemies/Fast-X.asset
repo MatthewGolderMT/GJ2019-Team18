@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 770c0839d6a8f3646a92604fdcb182db, type: 3}
+  m_Name: Fast-X
+  m_EditorClassIdentifier: 
+  MaxHealth: 10
+  Speed: 2
+  BulletSpeed: 4
+  BulletLifeDuration: 2
+  FireCooldown: 0.2
+  SpiralDegreeIncrementPerShot: 3
+  Pattern: 1
