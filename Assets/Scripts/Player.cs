@@ -28,12 +28,14 @@ public class Player : MonoBehaviour
 	{
 		input.MovementControl.Enable();
 		input.ShootControl.Enable();
+		input.MergeControl.Enable();
 	}
 
 	private void OnDisable()
 	{
 		input.MovementControl.Disable();
 		input.ShootControl.Disable();
+		input.MergeControl.Disable();
 	}
 
 	public void AssignNewMech(MechController mech, MechControl control)
@@ -83,5 +85,9 @@ public class Player : MonoBehaviour
 
 		input.ShootControl.Shoot.started += ctx => activeMech.SetFiringState(true);
 		input.ShootControl.Shoot.canceled += ctx => activeMech.SetFiringState(false);
+
+		input.MergeControl.Merge.started += ctx => activeMech.SetMergingState(true);
+		input.MergeControl.Merge.canceled += ctx => activeMech.SetMergingState(false);
+
 	}
 }

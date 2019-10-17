@@ -6,11 +6,16 @@ using static UnityEngine.InputSystem.InputAction;
 
 public class MechController : MonoBehaviour
 {
+	public enum MechColour { Red, Blue, Yellow, Purple, Orange, Green, Rainbow }
+
+	public MechColour mechColour;
+	public Player player;
 	public float Speed = 5f;
 	public Transform BulletSpawnPosition;
 	public GameObject BulletTemplate;
 	public float BulletForce = 5f;
 	public float FireCooldown = 0.5f;
+	public GameObject MergeCircle;
 
 	private Vector2 _move;
 	private Vector2 _lookDirection;
@@ -36,6 +41,7 @@ public class MechController : MonoBehaviour
 				Fire();
 			}
 		}
+
 	}
 
 	public void Move(Vector2 moveVector)
@@ -47,16 +53,22 @@ public class MechController : MonoBehaviour
 	{
 		_lookDirection = rotateVector;
 	}
-	/*
-	public void Grow()
-	{
-		transform.localScale *= 1.1f;
-	}
-	*/
 
 	public void SetFiringState(bool isFiring)
 	{
 		_firing = isFiring;
+	}
+
+	public void SetMergingState(bool isMerging)
+	{
+		if (isMerging)
+		{
+			MergeCircle.SetActive(true);
+		}
+		else
+		{
+			MergeCircle.SetActive(false);
+		}
 	}
 
 	private void Fire()

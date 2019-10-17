@@ -149,6 +149,33 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "MergeControl",
+            "id": "7ef46e5a-8bcf-4b04-9d90-63b64c77dff3",
+            "actions": [
+                {
+                    "name": "Merge",
+                    "type": "Button",
+                    "id": "864a079d-3e5d-4799-b0cd-67781970751f",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d5f03ce9-9c7f-40a3-8e1a-64b99a0bb012",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Merge",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

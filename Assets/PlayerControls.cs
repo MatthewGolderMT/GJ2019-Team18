@@ -162,6 +162,33 @@ public class PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""MergeControl"",
+            ""id"": ""7ef46e5a-8bcf-4b04-9d90-63b64c77dff3"",
+            ""actions"": [
+                {
+                    ""name"": ""Merge"",
+                    ""type"": ""Button"",
+                    ""id"": ""864a079d-3e5d-4799-b0cd-67781970751f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""d5f03ce9-9c7f-40a3-8e1a-64b99a0bb012"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Merge"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -178,6 +205,9 @@ public class PlayerControls : IInputActionCollection, IDisposable
         m_ShootControl = asset.FindActionMap("ShootControl", throwIfNotFound: true);
         m_ShootControl_Shoot = m_ShootControl.FindAction("Shoot", throwIfNotFound: true);
         m_ShootControl_Rotation = m_ShootControl.FindAction("Rotation", throwIfNotFound: true);
+        // MergeControl
+        m_MergeControl = asset.FindActionMap("MergeControl", throwIfNotFound: true);
+        m_MergeControl_Merge = m_MergeControl.FindAction("Merge", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -346,6 +376,39 @@ public class PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public ShootControlActions @ShootControl => new ShootControlActions(this);
+
+    // MergeControl
+    private readonly InputActionMap m_MergeControl;
+    private IMergeControlActions m_MergeControlActionsCallbackInterface;
+    private readonly InputAction m_MergeControl_Merge;
+    public struct MergeControlActions
+    {
+        private PlayerControls m_Wrapper;
+        public MergeControlActions(PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Merge => m_Wrapper.m_MergeControl_Merge;
+        public InputActionMap Get() { return m_Wrapper.m_MergeControl; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MergeControlActions set) { return set.Get(); }
+        public void SetCallbacks(IMergeControlActions instance)
+        {
+            if (m_Wrapper.m_MergeControlActionsCallbackInterface != null)
+            {
+                Merge.started -= m_Wrapper.m_MergeControlActionsCallbackInterface.OnMerge;
+                Merge.performed -= m_Wrapper.m_MergeControlActionsCallbackInterface.OnMerge;
+                Merge.canceled -= m_Wrapper.m_MergeControlActionsCallbackInterface.OnMerge;
+            }
+            m_Wrapper.m_MergeControlActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                Merge.started += instance.OnMerge;
+                Merge.performed += instance.OnMerge;
+                Merge.canceled += instance.OnMerge;
+            }
+        }
+    }
+    public MergeControlActions @MergeControl => new MergeControlActions(this);
     public interface IFullControlActions
     {
         void OnGrow(InputAction.CallbackContext context);
@@ -360,5 +423,9 @@ public class PlayerControls : IInputActionCollection, IDisposable
     {
         void OnShoot(InputAction.CallbackContext context);
         void OnRotation(InputAction.CallbackContext context);
+    }
+    public interface IMergeControlActions
+    {
+        void OnMerge(InputAction.CallbackContext context);
     }
 }
