@@ -10,4 +10,12 @@ public class WaveGroupData : ScriptableObject
     [SerializeField] public float SpawnDelay = 0.1f;
     [SerializeField] public float NextGroupDelay = 1.0f;
     [SerializeField] public SpawnSide Spawn = SpawnSide.Right;
+
+    public float TotalSpawnDelay
+    {
+        get
+        {
+            return (Enemies.Count * SpawnDelay) + NextGroupDelay;
+        }
+    }
 }

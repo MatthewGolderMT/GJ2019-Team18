@@ -7,6 +7,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3623643503947331073, guid: 0014815fc9cd148d38ec593bbd05d75f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6850808448332830593, guid: 0014815fc9cd148d38ec593bbd05d75f,
+        type: 3}
+      propertyPath: mechColour
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5468351446411252170, guid: 0014815fc9cd148d38ec593bbd05d75f,
         type: 3}
       propertyPath: m_Name

@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 5468351446411252170, guid: 0014815fc9cd148d38ec593bbd05d75f,
         type: 3}
       propertyPath: m_Name
-      value: RedPlayer
+      value: RedMech
       objectReference: {fileID: 0}
     - target: {fileID: 5468351446411252181, guid: 0014815fc9cd148d38ec593bbd05d75f,
         type: 3}
@@ -67,21 +67,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5468351444588017236, guid: 0014815fc9cd148d38ec593bbd05d75f,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.7924528
-      objectReference: {fileID: 0}
-    - target: {fileID: 5468351444588017236, guid: 0014815fc9cd148d38ec593bbd05d75f,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.18316127
-      objectReference: {fileID: 0}
-    - target: {fileID: 5468351444588017236, guid: 0014815fc9cd148d38ec593bbd05d75f,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.18316127
-      objectReference: {fileID: 0}
     - target: {fileID: 5468351445691555286, guid: 0014815fc9cd148d38ec593bbd05d75f,
         type: 3}
       propertyPath: m_Color.r
@@ -96,6 +81,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0.42856115
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468351444588017236, guid: 0014815fc9cd148d38ec593bbd05d75f,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.7924528
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468351444588017236, guid: 0014815fc9cd148d38ec593bbd05d75f,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.18316127
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468351444588017236, guid: 0014815fc9cd148d38ec593bbd05d75f,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.18316127
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0014815fc9cd148d38ec593bbd05d75f, type: 3}
