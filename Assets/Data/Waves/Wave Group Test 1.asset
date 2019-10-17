@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Wave Group Test 1
   m_EditorClassIdentifier: 
   Enemies:
-  - {fileID: 11400000, guid: 669d315e457a9424f9915084dc406c58, type: 2}
-  NextIterationDelay: 1
+  - {fileID: 11400000, guid: ef13256e595644a4e93e92ac3544e65b, type: 2}
+  SpawnDelay: 0.5
+  NextGroupDelay: 1
   Spawn: 2

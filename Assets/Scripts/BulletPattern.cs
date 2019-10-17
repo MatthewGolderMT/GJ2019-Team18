@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class BulletPattern : MonoBehaviour
 {
@@ -24,6 +25,7 @@ public class BulletPattern : MonoBehaviour
     [SerializeField] private GameObject BulletTemplate = null;
 
     private EnemyData _data = null;
+    private float _timeToChangePattern = 0f;
     private float _timeSinceLastFire = 0f;
     private int _spiralRotation = 0;
 
@@ -41,6 +43,23 @@ public class BulletPattern : MonoBehaviour
         }
 
         _timeSinceLastFire += Time.deltaTime;
+        if (_data.ChangesPattern)
+        {
+            _timeToChangePattern += Time.deltaTime;
+            if (_timeToChangePattern > 1f)
+            {
+                int currentPatternIdx = (int)_data.Pattern;
+                currentPatternIdx++;
+                if (currentPatternIdx >= Enum.GetNames(typeof(Pattern)).Length)
+                {
+                    currentPatternIdx = 0;
+                }
+
+                _data.Pattern = (Pattern)currentPatternIdx;
+                _timeToChangePattern = 0f;
+            }
+        }
+
         if (_timeSinceLastFire > _data.FireCooldown)
         {
             switch (_data.Pattern)
@@ -100,7 +119,7 @@ public class BulletPattern : MonoBehaviour
 
     private void FireCirclePattern()
     {
-        for (int degree = 0; degree < 360; degree +=5)
+        for (int degree = 0; degree < 360; degree +=20)
         {
             SpawnBullet(Parent.position, Parent.rotation, DegToVec2(degree));
         }
