@@ -1,8 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Enemy Data", menuName = "Enemy Data", order = 52)]
 public class EnemyData : ScriptableObject
 {
+    [SerializeField] public bool FollowsPlayer = true;
+    [SerializeField] public List<Vector2> MovePoints = new List<Vector2>();
+    [SerializeField] public bool ChangesPattern = false;
     [SerializeField] public int MaxHealth = 10;
     [SerializeField] public float Speed = 1.5f;
     [SerializeField] public float BulletSpeed = 3f;
