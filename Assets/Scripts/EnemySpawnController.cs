@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +9,7 @@ public class EnemySpawnController : MonoBehaviour
     [SerializeField] private Wave CurrentWave = null;
     [SerializeField] private GameObject EnemyPrefab = null;
 
-    public enum State { AllClear, Spawning, FinishedSpawning }
+    public enum State { AllClear, Spawning, FinishedSpawning, Completed }
     private State _currentState = State.AllClear;
     private int _currentWaveIndex = 0;
     private List<GameObject> _enemiesGO = new List<GameObject>();
@@ -20,7 +21,14 @@ public class EnemySpawnController : MonoBehaviour
         {
             case State.AllClear:
             {
-                StartNextWave();
+                if (_currentWaveIndex >= Waves.Count)
+                {
+                    _currentState = State.Completed;
+                }
+                else
+                {
+                    StartNextWave();
+                }
                 break;
             }
             case State.Spawning:
@@ -45,6 +53,10 @@ public class EnemySpawnController : MonoBehaviour
                 }
                 break;
             }
+            case State.Completed:
+            {
+                break;
+            }
         }
     }
 
@@ -55,8 +67,10 @@ public class EnemySpawnController : MonoBehaviour
         _currentWaveIndex++;
     }
 
-    public void AddEnemy(EnemyData data, Vector3 pos)
+    public IEnumerator AddEnemy(EnemyData data, Vector3 pos, float delay)
     {
+        yield return new WaitForSeconds(delay);
+    
         GameObject enemyGO = Instantiate(EnemyPrefab, pos, Quaternion.identity);
         Enemy enemy = enemyGO.GetComponent<Enemy>();
         enemy.ResetData(data);

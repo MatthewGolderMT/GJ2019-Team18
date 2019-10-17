@@ -40,7 +40,8 @@ public class Wave : MonoBehaviour
                     _spawnDelay -= Time.deltaTime;
                     if (0.0f > _spawnDelay)
                     {
-                        StartCoroutine(AddNextGroup());
+                        AddNextGroup();
+                        _currentIteration++;
                     }
                 }
                 break;
@@ -52,11 +53,13 @@ public class Wave : MonoBehaviour
         }
     }
 
-    private IEnumerator AddNextGroup()
+    private void AddNextGroup()
     {
+        _spawnDelay = _data.WaveGroups[_currentIteration].TotalSpawnDelay;
+
         Vector3 pos = Vector3.zero;
 
-        for (int i = 0; i < _data.WaveGroups[_currentIteration].Enemies.Count; i++)
+        for (int i = 0; i < _data.WaveGroups[_currentIteration].Enemies.Count; ++i)
         {
             float rand = 0;// Random.Range(-10, 10);
 
@@ -85,12 +88,10 @@ public class Wave : MonoBehaviour
                     break;
                 }
             }
-            _spawnController.AddEnemy(enemy, pos);
-            yield return new WaitForSeconds(_data.WaveGroups[_currentIteration].SpawnDelay);
-        }
-        _spawnDelay = _data.WaveGroups[_currentIteration].NextGroupDelay;
 
-        _currentIteration++;
+            float delay = _data.WaveGroups[_currentIteration].SpawnDelay * i;
+            StartCoroutine(_spawnController.AddEnemy(enemy, pos, delay));
+        }
     }
 
     public bool IsFinishedSpawning
