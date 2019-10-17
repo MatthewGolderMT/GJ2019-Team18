@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class MergeTester : MonoBehaviour
+public class MergeTester : MonoBehaviour //obselete
 {
 	public Player player1;
 	public Player player2;

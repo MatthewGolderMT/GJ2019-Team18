@@ -162,6 +162,74 @@ public class PlayerControls : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""MergeControl"",
+            ""id"": ""7ef46e5a-8bcf-4b04-9d90-63b64c77dff3"",
+            ""actions"": [
+                {
+                    ""name"": ""Merge"",
+                    ""type"": ""Button"",
+                    ""id"": ""864a079d-3e5d-4799-b0cd-67781970751f"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Disband"",
+                    ""type"": ""Button"",
+                    ""id"": ""baf2546b-5cce-4a75-abf6-40ab7a6fec5c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""d5f03ce9-9c7f-40a3-8e1a-64b99a0bb012"",
+                    ""path"": ""<Gamepad>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Merge"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""68060898-6c28-4a4f-8ad7-777a026b5ee0"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Disband"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""887bb753-bce3-40a0-bb82-4f4e5df5867d"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Disband"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""783e3c28-2839-42bb-bdc7-fe1622906d9c"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Disband"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -178,6 +246,10 @@ public class PlayerControls : IInputActionCollection, IDisposable
         m_ShootControl = asset.FindActionMap("ShootControl", throwIfNotFound: true);
         m_ShootControl_Shoot = m_ShootControl.FindAction("Shoot", throwIfNotFound: true);
         m_ShootControl_Rotation = m_ShootControl.FindAction("Rotation", throwIfNotFound: true);
+        // MergeControl
+        m_MergeControl = asset.FindActionMap("MergeControl", throwIfNotFound: true);
+        m_MergeControl_Merge = m_MergeControl.FindAction("Merge", throwIfNotFound: true);
+        m_MergeControl_Disband = m_MergeControl.FindAction("Disband", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -346,6 +418,47 @@ public class PlayerControls : IInputActionCollection, IDisposable
         }
     }
     public ShootControlActions @ShootControl => new ShootControlActions(this);
+
+    // MergeControl
+    private readonly InputActionMap m_MergeControl;
+    private IMergeControlActions m_MergeControlActionsCallbackInterface;
+    private readonly InputAction m_MergeControl_Merge;
+    private readonly InputAction m_MergeControl_Disband;
+    public struct MergeControlActions
+    {
+        private PlayerControls m_Wrapper;
+        public MergeControlActions(PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Merge => m_Wrapper.m_MergeControl_Merge;
+        public InputAction @Disband => m_Wrapper.m_MergeControl_Disband;
+        public InputActionMap Get() { return m_Wrapper.m_MergeControl; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MergeControlActions set) { return set.Get(); }
+        public void SetCallbacks(IMergeControlActions instance)
+        {
+            if (m_Wrapper.m_MergeControlActionsCallbackInterface != null)
+            {
+                Merge.started -= m_Wrapper.m_MergeControlActionsCallbackInterface.OnMerge;
+                Merge.performed -= m_Wrapper.m_MergeControlActionsCallbackInterface.OnMerge;
+                Merge.canceled -= m_Wrapper.m_MergeControlActionsCallbackInterface.OnMerge;
+                Disband.started -= m_Wrapper.m_MergeControlActionsCallbackInterface.OnDisband;
+                Disband.performed -= m_Wrapper.m_MergeControlActionsCallbackInterface.OnDisband;
+                Disband.canceled -= m_Wrapper.m_MergeControlActionsCallbackInterface.OnDisband;
+            }
+            m_Wrapper.m_MergeControlActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                Merge.started += instance.OnMerge;
+                Merge.performed += instance.OnMerge;
+                Merge.canceled += instance.OnMerge;
+                Disband.started += instance.OnDisband;
+                Disband.performed += instance.OnDisband;
+                Disband.canceled += instance.OnDisband;
+            }
+        }
+    }
+    public MergeControlActions @MergeControl => new MergeControlActions(this);
     public interface IFullControlActions
     {
         void OnGrow(InputAction.CallbackContext context);
@@ -360,5 +473,10 @@ public class PlayerControls : IInputActionCollection, IDisposable
     {
         void OnShoot(InputAction.CallbackContext context);
         void OnRotation(InputAction.CallbackContext context);
+    }
+    public interface IMergeControlActions
+    {
+        void OnMerge(InputAction.CallbackContext context);
+        void OnDisband(InputAction.CallbackContext context);
     }
 }
