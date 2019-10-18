@@ -10,18 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 770c0839d6a8f3646a92604fdcb182db, type: 3}
-  m_Name: Circle-Green
+  m_Name: Minion 1
   m_EditorClassIdentifier: 
   IsBoss: 0
   FollowsPlayer: 1
   MovePoints: []
-  ChangesPattern: 0
+  ChangesPattern: 1
   ChangesPeriod: 4
-  MaxHealth: 12
-  Speed: 1.5
+  MaxHealth: 20
+  Speed: 2
   BulletSpeed: 3
   BulletLifeDuration: 4
-  FireCooldown: 0.5
+  FireCooldown: 1
   SpiralDegreeIncrementPerShot: 3
-  Pattern: 3
-  Colour: 4
+  ShotsPerCircle: 10
+  Pattern: 0
+  Colour: 0

@@ -15,6 +15,7 @@ public class EnemyData : ScriptableObject
     [SerializeField] public float BulletLifeDuration = 4f;
     [SerializeField] public float FireCooldown = 0.1f;
     [SerializeField] public int SpiralDegreeIncrementPerShot = 3;
+    [SerializeField] public int ShotsPerCircle = 3;
     [SerializeField] public BulletPattern.Pattern Pattern =  BulletPattern.Pattern.CrossPattern;
     [SerializeField] public MechController.MechColour Colour = MechController.MechColour.Blue;
 }
