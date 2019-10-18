@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: WG 4B
   m_EditorClassIdentifier: 
   Enemies:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: e6ab433b9828aba45bc68a1e6a63b6ad, type: 2}
   SpawnDelay: 0.1
-  NextGroupDelay: 1
+  NextGroupDelay: 5
   Spawn: 2
