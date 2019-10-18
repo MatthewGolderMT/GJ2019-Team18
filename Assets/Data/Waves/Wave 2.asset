@@ -13,6 +13,9 @@ MonoBehaviour:
   m_Name: Wave 2
   m_EditorClassIdentifier: 
   WaveGroups:
-  - {fileID: 11400000, guid: e8e37e368a4a18848a900da34e42a955, type: 2}
-  - {fileID: 11400000, guid: e8e37e368a4a18848a900da34e42a955, type: 2}
-  SpawnController: {fileID: 0}
+  - {fileID: 11400000, guid: 8162c96cde1297048bc73130052239bf, type: 2}
+  - {fileID: 11400000, guid: 3e8bd6d7857679544b48cdeacb3fba81, type: 2}
+  - {fileID: 11400000, guid: 858ca33794c56e1439364b99ca7e32bd, type: 2}
+  - {fileID: 11400000, guid: a25739a41a7f4ed47a4d6617c3290947, type: 2}
+  - {fileID: 11400000, guid: 18b7f4b1bfd0f064cae261fe8d74d006, type: 2}
+  BossGroup: {fileID: 0}
