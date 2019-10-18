@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d8b27c5d57f92b4aacd7a0c4b5c9184, type: 3}
-  m_Name: WG 2E
+  m_Name: WG 3A
   m_EditorClassIdentifier: 
   Enemies:
-  - {fileID: 11400000, guid: 635b49b1adce39940baa813e2046c828, type: 2}
-  SpawnDelay: 1
-  NextGroupDelay: 1
-  Spawn: 2
+  - {fileID: 11400000, guid: 5e6d3710e8c02b04186a08b4bf6dca17, type: 2}
+  - {fileID: 11400000, guid: f9e4fc29e361a204e824269085f79de5, type: 2}
+  - {fileID: 11400000, guid: 588f72086c7ab8944831d27fddb0aed5, type: 2}
+  SpawnDelay: 2
+  NextGroupDelay: 5
+  Spawn: 0
