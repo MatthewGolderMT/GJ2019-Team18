@@ -488,6 +488,21 @@ PrefabInstance:
       propertyPath: players.Array.data[0]
       value: 
       objectReference: {fileID: 1607652793}
+    - target: {fileID: 3297796486241281464, guid: ce56fb7f9ab024958a9041d7b9e98019,
+        type: 3}
+      propertyPath: FireCooldown
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297796486241281464, guid: ce56fb7f9ab024958a9041d7b9e98019,
+        type: 3}
+      propertyPath: Speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297796486241281464, guid: ce56fb7f9ab024958a9041d7b9e98019,
+        type: 3}
+      propertyPath: BulletForce
+      value: 17
+      objectReference: {fileID: 0}
     - target: {fileID: 2945819198022609182, guid: ce56fb7f9ab024958a9041d7b9e98019,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -550,6 +565,66 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8234218636942264988, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
+        type: 3}
+      propertyPath: mechFactory
+      value: 
+      objectReference: {fileID: 1375410493}
+    - target: {fileID: 1697173815533097602, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697173815533097602, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.63968205
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697173815533097602, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697173815533097602, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.20392157
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256588519294050644, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217573161932030164, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
+        type: 3}
+      propertyPath: players.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217573161932030164, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 924381825}
+    - target: {fileID: 6217573161932030164, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
+        type: 3}
+      propertyPath: players.Array.data[0]
+      value: 
+      objectReference: {fileID: 924381825}
+    - target: {fileID: 6217573161932030164, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
+        type: 3}
+      propertyPath: FireCooldown
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217573161932030164, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
+        type: 3}
+      propertyPath: Speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217573161932030164, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
+        type: 3}
+      propertyPath: BulletForce
+      value: 17
+      objectReference: {fileID: 0}
     - target: {fileID: 4807813119474632320, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -603,51 +678,6 @@ PrefabInstance:
     - target: {fileID: 4807813119474632320, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6217573161932030164, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
-        type: 3}
-      propertyPath: players.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6217573161932030164, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 924381825}
-    - target: {fileID: 6217573161932030164, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
-        type: 3}
-      propertyPath: players.Array.data[0]
-      value: 
-      objectReference: {fileID: 924381825}
-    - target: {fileID: 8234218636942264988, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
-        type: 3}
-      propertyPath: mechFactory
-      value: 
-      objectReference: {fileID: 1375410493}
-    - target: {fileID: 1697173815533097602, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1697173815533097602, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.63968205
-      objectReference: {fileID: 0}
-    - target: {fileID: 1697173815533097602, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1697173815533097602, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0.20392157
-      objectReference: {fileID: 0}
-    - target: {fileID: 4256588519294050644, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -987,6 +1017,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3501796896796557189, guid: 0b9b2c18fe6dd47ebbf724d999e88f0f,
+        type: 3}
+      propertyPath: BulletForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3501796896796557189, guid: 0b9b2c18fe6dd47ebbf724d999e88f0f,
+        type: 3}
+      propertyPath: FireCooldown
+      value: 0.22
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b9b2c18fe6dd47ebbf724d999e88f0f, type: 3}
@@ -1524,6 +1564,16 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7872460616674926334, guid: bcedcad45d6174c8d84c9984eec845f9,
+        type: 3}
+      propertyPath: FireCooldown
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7872460616674926334, guid: bcedcad45d6174c8d84c9984eec845f9,
+        type: 3}
+      propertyPath: BulletForce
+      value: 25
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcedcad45d6174c8d84c9984eec845f9, type: 3}
 --- !u!1 &1154056954 stripped
@@ -1787,6 +1837,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8833794908143856535, guid: 147af969cfabc4c54816e466533f6969,
+        type: 3}
+      propertyPath: BulletForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8833794908143856535, guid: 147af969cfabc4c54816e466533f6969,
+        type: 3}
+      propertyPath: FireCooldown
+      value: 0.22
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 147af969cfabc4c54816e466533f6969, type: 3}
 --- !u!1001 &1244507536
@@ -1855,6 +1915,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813439921560509640, guid: be6803b7afebb49058174cc339b98bda,
+        type: 3}
+      propertyPath: BulletForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3813439921560509640, guid: be6803b7afebb49058174cc339b98bda,
+        type: 3}
+      propertyPath: FireCooldown
+      value: 0.22
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be6803b7afebb49058174cc339b98bda, type: 3}
@@ -2375,6 +2445,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 279343864621276623, guid: 6ac05222d4278f145a76aebab94e4f22,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5198541640146670061, guid: 6ac05222d4278f145a76aebab94e4f22,
         type: 3}
       propertyPath: m_Enabled
@@ -2394,11 +2469,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0.003921569
-      objectReference: {fileID: 0}
-    - target: {fileID: 279343864621276623, guid: 6ac05222d4278f145a76aebab94e4f22,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ac05222d4278f145a76aebab94e4f22, type: 3}
@@ -2837,6 +2907,21 @@ PrefabInstance:
       propertyPath: players.Array.data[0]
       value: 
       objectReference: {fileID: 160271826}
+    - target: {fileID: 3297796486241281464, guid: a1cde19da8e3d496facfe01b9d7e9c5d,
+        type: 3}
+      propertyPath: FireCooldown
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297796486241281464, guid: a1cde19da8e3d496facfe01b9d7e9c5d,
+        type: 3}
+      propertyPath: Speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3297796486241281464, guid: a1cde19da8e3d496facfe01b9d7e9c5d,
+        type: 3}
+      propertyPath: BulletForce
+      value: 17
+      objectReference: {fileID: 0}
     - target: {fileID: 4122387095848805356, guid: a1cde19da8e3d496facfe01b9d7e9c5d,
         type: 3}
       propertyPath: m_LocalPosition.x

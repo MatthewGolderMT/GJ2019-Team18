@@ -17,7 +17,7 @@ MonoBehaviour:
   MovePoints: []
   ChangesPattern: 0
   ChangesPeriod: 4
-  MaxHealth: 7
+  MaxHealth: 16
   Speed: 1
   BulletSpeed: 1.5
   BulletLifeDuration: 4
