@@ -17,9 +17,9 @@ MonoBehaviour:
   MovePoints: []
   ChangesPattern: 0
   ChangesPeriod: 4
-  MaxHealth: 12
+  MaxHealth: 10
   Speed: 1.5
-  BulletSpeed: 3
+  BulletSpeed: 2
   BulletLifeDuration: 4
   FireCooldown: 0.25
   SpiralDegreeIncrementPerShot: 3
