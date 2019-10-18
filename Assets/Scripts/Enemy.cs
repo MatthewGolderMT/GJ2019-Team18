@@ -28,6 +28,7 @@ public class Enemy : MonoBehaviour
 		{
 			_targetTransform = MechFactory.Instance.GetRandomActiveMech();
 		}
+		ApplyColour();
 	}
 
 	private void OnEnable()
@@ -46,7 +47,8 @@ public class Enemy : MonoBehaviour
 	{
 		if (IsDead)
 		{
-			this.enabled = false;
+			//this.enabled = false;
+			gameObject.SetActive(false);
 		}
 		else
 		{
@@ -147,18 +149,21 @@ public class Enemy : MonoBehaviour
 	public void DoDamage(int damage)
 	{
 		_currentHealth -= damage;
-		_colourChangeCounter++;
-		if (_colourChangeCounter >= 10)
+		if (_data.IsBoss)
 		{
-			int colIdx = (int)_data.Colour;
-			colIdx++;
-			if (colIdx >= Enum.GetNames(typeof(MechController.MechColour)).Length - 1)
+			_colourChangeCounter++;
+			if (_colourChangeCounter >= 10)
 			{
-				colIdx = 0;
+				int colIdx = (int)_data.Colour;
+				colIdx++;
+				if (colIdx >= Enum.GetNames(typeof(MechController.MechColour)).Length - 1)
+				{
+					colIdx = 0;
+				}
+				_data.Colour = (MechController.MechColour)colIdx;
+				ApplyColour();
+				_colourChangeCounter = 0;
 			}
-			_data.Colour = (MechController.MechColour)colIdx;
-			ApplyColour();
-			_colourChangeCounter = 0;
 		}
 	}
 
