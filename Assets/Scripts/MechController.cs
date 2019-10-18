@@ -11,6 +11,9 @@ public class MechController : MonoBehaviour
 	public delegate void DisbandEvent(MechController mech1);
 	public static event DisbandEvent DisbandMech;
 
+	public delegate void DamageEvent();
+	public static event DamageEvent damageEvent;
+
 	public MechColour mechColour;
 	public List<Player> players;//first player is default
 	public float Speed = 5f;
@@ -124,6 +127,10 @@ public class MechController : MonoBehaviour
 				foreach (Player player in players)
 				{
 					player.AdjustHealth(-bulletComp.Damage);
+				}
+				if (damageEvent != null)
+				{
+					damageEvent();
 				}
 			}
 		}

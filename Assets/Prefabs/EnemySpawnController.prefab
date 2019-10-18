@@ -57,8 +57,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 22e4a129041a9e546972b70717ab03a0, type: 2}
   - {fileID: 11400000, guid: 4bd1cd13b3aa677449a9674d129a99ad, type: 2}
   - {fileID: 11400000, guid: 0cd331e661447b549828b87887925217, type: 2}
-  - {fileID: 11400000, guid: 6af4fd3ffad85c0478c42520f2e718e5, type: 2}
-  - {fileID: 11400000, guid: 2fa34686b153e7044b7c6fd6466ad540, type: 2}
+  - {fileID: 11400000, guid: 64a0005a25c4b7c4492814b35b72c4f9, type: 2}
+  - {fileID: 11400000, guid: 7423300e80280cd4fa7d2d4fbb58ee4a, type: 2}
   CurrentWave: {fileID: 3776415671968176704}
   EnemyPrefab: {fileID: 5468351446411252170, guid: af82a271af1df684cb1855e5564389c5,
     type: 3}

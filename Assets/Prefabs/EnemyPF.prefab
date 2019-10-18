@@ -209,6 +209,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Pattern: {fileID: 6780083623766511008}
   Sprite: {fileID: 5468351444588017236}
+  bossSprite: {fileID: 21300000, guid: afdee04fce04e264db8e05a285c68a64, type: 3}
 --- !u!114 &6780083623766511008
 MonoBehaviour:
   m_ObjectHideFlags: 0
