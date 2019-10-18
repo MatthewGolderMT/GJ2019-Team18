@@ -110,9 +110,21 @@ public class MechController : MonoBehaviour
 			}
 		}
 
-
-
 	}
+
+	void OnTriggerEnter2D(Collider2D col)
+	{
+		if (col.gameObject.tag == "Bullet")
+		{
+			Bullet bulletComp = col.GetComponent<Bullet>();
+			if (bulletComp.bulletSource == Bullet.BulletSource.Enemy)
+			{
+				//Debug.Log("MECH hit");
+				bulletComp.DestroyBullet();
+			}
+		}
+	}
+
 
 	public void Move(Vector2 moveVector)
 	{

@@ -385,7 +385,7 @@ MonoBehaviour:
   Speed: 5
   BulletSpawnPosition: {fileID: 3025676945487984642}
   SecondBulletSpawnPosition: {fileID: 0}
-  BulletTemplate: {fileID: 8411116962137537062, guid: 447d281d3834f4f6ebb95e8688af33ad,
+  BulletTemplate: {fileID: 5695545888908118382, guid: d5de2ca37c307485c82e69e16ac80f6d,
     type: 3}
   BulletForce: 50
   FireCooldown: 0.1
