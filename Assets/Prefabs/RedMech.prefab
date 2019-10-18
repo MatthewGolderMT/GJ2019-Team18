@@ -12,6 +12,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: RedMech
       objectReference: {fileID: 0}
+    - target: {fileID: 6850808448332830593, guid: 0014815fc9cd148d38ec593bbd05d75f,
+        type: 3}
+      propertyPath: BulletTemplate
+      value: 
+      objectReference: {fileID: 1629926551550917704, guid: c3f41acf1437d4f7bb4c621448131c05,
+        type: 3}
     - target: {fileID: 5468351446411252181, guid: 0014815fc9cd148d38ec593bbd05d75f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -67,21 +73,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5468351445691555286, guid: 0014815fc9cd148d38ec593bbd05d75f,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.9150943
-      objectReference: {fileID: 0}
-    - target: {fileID: 5468351445691555286, guid: 0014815fc9cd148d38ec593bbd05d75f,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.41869882
-      objectReference: {fileID: 0}
-    - target: {fileID: 5468351445691555286, guid: 0014815fc9cd148d38ec593bbd05d75f,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.42856115
-      objectReference: {fileID: 0}
     - target: {fileID: 5468351444588017236, guid: 0014815fc9cd148d38ec593bbd05d75f,
         type: 3}
       propertyPath: m_Color.r
@@ -96,6 +87,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0.18316127
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468351445691555286, guid: 0014815fc9cd148d38ec593bbd05d75f,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.9150943
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468351445691555286, guid: 0014815fc9cd148d38ec593bbd05d75f,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.41869882
+      objectReference: {fileID: 0}
+    - target: {fileID: 5468351445691555286, guid: 0014815fc9cd148d38ec593bbd05d75f,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.42856115
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0014815fc9cd148d38ec593bbd05d75f, type: 3}

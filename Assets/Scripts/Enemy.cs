@@ -141,7 +141,10 @@ public class Enemy : MonoBehaviour
 			Bullet bulletComp = col.GetComponent<Bullet>();
 			if (bulletComp.bulletSource == Bullet.BulletSource.Player)
 			{
-				DoDamage(bulletComp.Damage);
+				if (bulletComp.bulletColour == _data.Colour)
+				{
+					DoDamage(bulletComp.Damage);
+				}
 				bulletComp.DestroyBullet();
 			}
 		}

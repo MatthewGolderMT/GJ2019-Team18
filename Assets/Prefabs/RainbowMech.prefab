@@ -12,6 +12,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: RainbowMech
       objectReference: {fileID: 0}
+    - target: {fileID: 6850808448332830593, guid: 0014815fc9cd148d38ec593bbd05d75f,
+        type: 3}
+      propertyPath: mechColour
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6850808448332830593, guid: 0014815fc9cd148d38ec593bbd05d75f,
+        type: 3}
+      propertyPath: BulletTemplate
+      value: 
+      objectReference: {fileID: 1629926551550917704, guid: b24a330583a2c46328aca59792d05046,
+        type: 3}
     - target: {fileID: 5468351446411252181, guid: 0014815fc9cd148d38ec593bbd05d75f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -66,11 +77,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6850808448332830593, guid: 0014815fc9cd148d38ec593bbd05d75f,
-        type: 3}
-      propertyPath: mechColour
-      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0014815fc9cd148d38ec593bbd05d75f, type: 3}
