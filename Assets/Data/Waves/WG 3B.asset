@@ -16,6 +16,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ca709149f10aff148b56140a9fdb537a, type: 2}
   - {fileID: 11400000, guid: d16f9e47765befc41af1af3b3498e13c, type: 2}
   - {fileID: 11400000, guid: 2f389eae00ee4414dbc2a4b92cb21a98, type: 2}
-  SpawnDelay: 2
-  NextGroupDelay: 5
+  SpawnDelay: 3
+  NextGroupDelay: 8
   Spawn: 1
