@@ -13,10 +13,15 @@ public class Enemy : MonoBehaviour
 	private int _colourChangeCounter = 0;
 	private int _currentTragetIdx = 0;
 	private float kMinDist = 0.1f;
+	public Sprite bossSprite;
 
 	public void ResetData(EnemyData data)
 	{
 		_data = data;
+		if (_data.IsBoss == true)
+		{
+			Sprite.sprite = bossSprite;
+		}
 		Pattern.ResetData(_data);
 		_currentHealth = _data.MaxHealth;
 

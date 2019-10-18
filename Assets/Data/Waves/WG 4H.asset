@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9d8b27c5d57f92b4aacd7a0c4b5c9184, type: 3}
-  m_Name: WG 5C
+  m_Name: WG 4H
   m_EditorClassIdentifier: 
   Enemies:
-  - {fileID: 11400000, guid: 2401cf1271dedbe4f9559dbe0d62a444, type: 2}
+  - {fileID: 11400000, guid: e6ab433b9828aba45bc68a1e6a63b6ad, type: 2}
   SpawnDelay: 0.1
-  NextGroupDelay: 10
+  NextGroupDelay: 5
   Spawn: 2

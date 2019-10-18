@@ -15,5 +15,5 @@ MonoBehaviour:
   Enemies:
   - {fileID: 11400000, guid: f1d059b4f26f5e54a8fe665ef645b0c4, type: 2}
   SpawnDelay: 0.1
-  NextGroupDelay: 5
+  NextGroupDelay: 10
   Spawn: 2

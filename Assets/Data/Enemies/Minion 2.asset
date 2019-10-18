@@ -24,5 +24,5 @@ MonoBehaviour:
   FireCooldown: 0.75
   SpiralDegreeIncrementPerShot: 3
   ShotsPerCircle: 10
-  Pattern: 0
-  Colour: 2
+  Pattern: 3
+  Colour: 3
