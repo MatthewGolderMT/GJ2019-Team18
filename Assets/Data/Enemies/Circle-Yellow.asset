@@ -10,22 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 770c0839d6a8f3646a92604fdcb182db, type: 3}
-  m_Name: Boss
+  m_Name: Circle-Yellow
   m_EditorClassIdentifier: 
-  IsBoss: 1
-  FollowsPlayer: 0
-  MovePoints:
-  - {x: 4, y: 4}
-  - {x: 4, y: -4}
-  - {x: -4, y: -4}
-  - {x: -4, y: 4}
-  ChangesPattern: 1
+  IsBoss: 0
+  FollowsPlayer: 1
+  MovePoints: []
+  ChangesPattern: 0
   ChangesPeriod: 4
-  MaxHealth: 100
-  Speed: 2
-  BulletSpeed: 4
-  BulletLifeDuration: 2
-  FireCooldown: 0.2
-  SpiralDegreeIncrementPerShot: 20
+  MaxHealth: 12
+  Speed: 1.5
+  BulletSpeed: 3
+  BulletLifeDuration: 4
+  FireCooldown: 0.5
+  SpiralDegreeIncrementPerShot: 3
   Pattern: 3
-  Colour: 0
+  Colour: 2
