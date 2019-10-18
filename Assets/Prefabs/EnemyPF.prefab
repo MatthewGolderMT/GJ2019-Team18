@@ -207,6 +207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pattern: {fileID: 6780083623766511008}
+  Sprite: {fileID: 5468351444588017236}
 --- !u!114 &6780083623766511008
 MonoBehaviour:
   m_ObjectHideFlags: 0

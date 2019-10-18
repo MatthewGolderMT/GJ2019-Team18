@@ -13,9 +13,6 @@ public class WaveGroupData : ScriptableObject
 
     public float TotalSpawnDelay
     {
-        get
-        {
-            return (Enemies.Count * SpawnDelay) + NextGroupDelay;
-        }
+        get { return (Enemies.Count * SpawnDelay) + NextGroupDelay; }
     }
 }
