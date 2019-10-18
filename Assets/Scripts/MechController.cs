@@ -121,6 +121,10 @@ public class MechController : MonoBehaviour
 			{
 				//Debug.Log("MECH hit");
 				bulletComp.DestroyBullet();
+				foreach (Player player in players)
+				{
+					player.AdjustHealth(-bulletComp.Damage);
+				}
 			}
 		}
 	}

@@ -8,6 +8,8 @@ public class Player : MonoBehaviour
 	public enum MechControl { Full, Movement, Shoot, SecondaryShoot }
 
 	public MechController activeMech;
+	public PlayerUI playerUI;
+	public int currentHealth = 10;
 	public MechController startingMech;
 	private PlayerControls input;
 	private PlayerInput _playerInput;
@@ -23,7 +25,8 @@ public class Player : MonoBehaviour
 
 		SetInputMappings();
 
-		AssignNewMech(activeMech, MechControl.Full);
+		AssignNewMech(activeMech, MechControl.Full, 10, 10);
+		AdjustHealth(0);
 	}
 
 	private void OnEnable()
@@ -42,12 +45,12 @@ public class Player : MonoBehaviour
 		input.MergeControl.Disable();
 	}
 
-	public void AssignStartingMech()
+	public void AssignStartingMech(int health)
 	{
-		AssignNewMech(startingMech, MechControl.Full);
+		AssignNewMech(startingMech, MechControl.Full, 10, health);
 	}
 
-	public void AssignNewMech(MechController mech, MechControl control)
+	public void AssignNewMech(MechController mech, MechControl control, int maxHealth, int health)
 	{
 		activeMech = mech;
 
@@ -81,6 +84,16 @@ public class Player : MonoBehaviour
 				break;
 
 		}
+		playerUI.SetColour(mech.mechColour);
+		playerUI.MaxHealth = maxHealth;
+		this.currentHealth = health;
+		AdjustHealth(0);
+	}
+
+	public void AdjustHealth(int health)
+	{
+		currentHealth += health;
+		playerUI.SetHealth(currentHealth);
 	}
 
 	private void SetInputMappings()

@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class MergeTester : MonoBehaviour //obselete
 {
+	/*
 	public Player player1;
 	public Player player2;
 	public GameObject PurpleMechTemp;
@@ -27,5 +28,6 @@ public class MergeTester : MonoBehaviour //obselete
 			player2.AssignNewMech(purpleMechController, Player.MechControl.Movement);
 		}
 	}
+	*/
 
 }

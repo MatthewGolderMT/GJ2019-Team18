@@ -119,18 +119,20 @@ public class MechFactory : Singleton<MechFactory>
 	private void AssignSecondaryMechControls(GameObject newMech, MechController m1, MechController m2)
 	{
 		MechController mechController = newMech.GetComponent<MechController>();
+		int maxHealth = 20;
+		int currentHealth = m1.players[0].currentHealth + m2.players[0].currentHealth;
 
 		float random = Random.Range(0f, 1f);
 		if (random > 0.5f)
 		{
 			//assuming primary mechs have only one player
-			m1.players[0].AssignNewMech(mechController, Player.MechControl.Movement);
-			m2.players[0].AssignNewMech(mechController, Player.MechControl.Shoot);
+			m1.players[0].AssignNewMech(mechController, Player.MechControl.Movement, maxHealth, currentHealth);
+			m2.players[0].AssignNewMech(mechController, Player.MechControl.Shoot, maxHealth, currentHealth);
 		}
 		else
 		{
-			m1.players[0].AssignNewMech(mechController, Player.MechControl.Shoot);
-			m2.players[0].AssignNewMech(mechController, Player.MechControl.Movement);
+			m1.players[0].AssignNewMech(mechController, Player.MechControl.Shoot, maxHealth, currentHealth);
+			m2.players[0].AssignNewMech(mechController, Player.MechControl.Movement, maxHealth, currentHealth);
 		}
 
 		//give mech it's new players
@@ -151,12 +153,14 @@ public class MechFactory : Singleton<MechFactory>
 		List<Player> players = new List<Player>(3);
 		players.AddRange(m1.players);
 		players.AddRange(m2.players);
+		int maxHealth = 30;
+		int currentHealth = m1.players[0].currentHealth + m2.players[0].currentHealth;
 
 		//TODO: Randomise role assignments
 		//all playes need to be assigned a new mech with a role
-		players[0].AssignNewMech(mechController, Player.MechControl.Shoot);
-		players[1].AssignNewMech(mechController, Player.MechControl.SecondaryShoot);
-		players[2].AssignNewMech(mechController, Player.MechControl.Movement);
+		players[0].AssignNewMech(mechController, Player.MechControl.Shoot, maxHealth, currentHealth);
+		players[1].AssignNewMech(mechController, Player.MechControl.SecondaryShoot, maxHealth, currentHealth);
+		players[2].AssignNewMech(mechController, Player.MechControl.Movement, maxHealth, currentHealth);
 
 		//give rainbow mech it's new players
 		mechController.players = players;
@@ -216,9 +220,19 @@ public class MechFactory : Singleton<MechFactory>
 
 		}
 		//reassign controls
+		int splitHealth = 10;
+		if (mech.mechColour == MechColour.Green || mech.mechColour == MechColour.Purple || mech.mechColour == MechColour.Orange)
+		{
+			splitHealth = Mathf.CeilToInt(mech.players[0].currentHealth / 2f);
+		}
+		else if (mech.mechColour == MechColour.Red || mech.mechColour == MechColour.Blue || mech.mechColour == MechColour.Yellow)
+		{
+			splitHealth = Mathf.CeilToInt(mech.players[0].currentHealth / 3f);
+		}
+
 		foreach (Player player in mech.players)
 		{
-			player.AssignStartingMech();
+			player.AssignStartingMech(splitHealth);
 			player.activeMech.players = new List<Player>() { player };
 
 		}
