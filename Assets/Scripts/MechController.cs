@@ -15,16 +15,23 @@ public class MechController : MonoBehaviour
 	public List<Player> players;//first player is default
 	public float Speed = 5f;
 	public Transform BulletSpawnPosition;
+	public Transform SecondBulletSpawnPosition;
+
 	public GameObject BulletTemplate;
 	public float BulletForce = 5f;
 	public float FireCooldown = 0.5f;
 	public GameObject MergeCircle;
 	public Transform gun;
+	public Transform secondaryGun;
 
 	private Vector2 _move;
 	private Vector2 _lookDirection;
+	private Vector2 _secondaryLookDirection = new Vector2(-1, 0);
 	private float _timeSinceLastFire;
+	private float _secondaryTimeSinceLastFire;
+
 	private bool _firing;
+	private bool _secondaryFiring;
 	private int _disbandingPlayerCount;
 
 
@@ -47,13 +54,34 @@ public class MechController : MonoBehaviour
 			gun.rotation = Quaternion.Euler(0, 0, lookAngle);
 		}
 
+		//handle secondary gun rotate
+		float secondaryLookAngle = Mathf.Atan2(_secondaryLookDirection.y, _secondaryLookDirection.x) * Mathf.Rad2Deg - 90;
+
+		if (secondaryGun != null)
+		{
+			secondaryGun.rotation = Quaternion.Euler(0, 0, secondaryLookAngle);
+		}
+
 		//hadnle Fire cooldown
 		_timeSinceLastFire += Time.deltaTime;
 		if (_firing == true)
 		{
 			if (_timeSinceLastFire >= FireCooldown)
 			{
-				Fire();
+				Fire(BulletSpawnPosition, ref _timeSinceLastFire);
+			}
+		}
+
+		if (secondaryGun != null || SecondBulletSpawnPosition != null)
+		{
+
+			_secondaryTimeSinceLastFire += Time.deltaTime;
+			if (_secondaryFiring == true)
+			{
+				if (_secondaryTimeSinceLastFire >= FireCooldown)
+				{
+					Fire(SecondBulletSpawnPosition, ref _secondaryTimeSinceLastFire);
+				}
 			}
 		}
 
@@ -91,14 +119,24 @@ public class MechController : MonoBehaviour
 		_move = moveVector;
 	}
 
-	public void Rotate(Vector2 rotateVector)
+	public void RotateGun(Vector2 rotateVector)
 	{
 		_lookDirection = rotateVector;
+	}
+
+	public void RotateSecondGun(Vector2 rotateVector)
+	{
+		_secondaryLookDirection = rotateVector;
 	}
 
 	public void SetFiringState(bool isFiring)
 	{
 		_firing = isFiring;
+	}
+
+	public void SetSecondaryFiringState(bool isFiring)
+	{
+		_secondaryFiring = isFiring;
 	}
 
 	public void SetMergingState(bool isMerging)
@@ -118,15 +156,16 @@ public class MechController : MonoBehaviour
 		_disbandingPlayerCount += amount;
 	}
 
-	private void Fire()
+	private void Fire(Transform spawnPosition, ref float timeSinceFireVar)
 	{
-		GameObject bullet = Instantiate(BulletTemplate, BulletSpawnPosition.position, BulletSpawnPosition.rotation);
+		GameObject bullet = Instantiate(BulletTemplate, spawnPosition.position, spawnPosition.rotation);
 		Rigidbody2D bulletRigidbody = bullet.GetComponent<Rigidbody2D>();
 
-		Vector2 impulseDirection = BulletSpawnPosition.position - transform.position;
+		Vector2 impulseDirection = spawnPosition.position - transform.position;
 		bulletRigidbody.AddForce(impulseDirection * BulletForce, ForceMode2D.Impulse);
 
 		Destroy(bullet, 1.5f);
-		_timeSinceLastFire = 0;
+		//_timeSinceLastFire = 0;
+		timeSinceFireVar = 0;
 	}
 }

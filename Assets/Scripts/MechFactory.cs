@@ -155,7 +155,7 @@ public class MechFactory : Singleton<MechFactory>
 		//TODO: Randomise role assignments
 		//all playes need to be assigned a new mech with a role
 		players[0].AssignNewMech(mechController, Player.MechControl.Shoot);
-		players[1].AssignNewMech(mechController, Player.MechControl.Shoot);
+		players[1].AssignNewMech(mechController, Player.MechControl.SecondaryShoot);
 		players[2].AssignNewMech(mechController, Player.MechControl.Movement);
 
 		//give rainbow mech it's new players
