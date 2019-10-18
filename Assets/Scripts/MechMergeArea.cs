@@ -6,6 +6,14 @@ public class MechMergeArea : MonoBehaviour
 {
 	public delegate void MergeEvent(MechController mech1, MechController mech2);
 	public static event MergeEvent MergeMechs;
+	public GameObject combinePrefab;
+	public Animator combineAnimator;
+
+	void Awake()
+	{
+		combinePrefab = GameObject.Find("CombineFullScreenEffect_Triple");
+		combineAnimator = combinePrefab.GetComponent<Animator>();
+	}
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
@@ -18,6 +26,7 @@ public class MechMergeArea : MonoBehaviour
 				if (MergeMechs != null)
 				{
 					MergeMechs(myMech, otherMech);
+					combineAnimator.SetTrigger("Triple");
 				}
 			}
 			/*
