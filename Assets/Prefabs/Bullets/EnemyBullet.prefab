@@ -72,5 +72,20 @@ PrefabInstance:
       propertyPath: bulletSource
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2721193663845460204, guid: 447d281d3834f4f6ebb95e8688af33ad,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2721193663845460204, guid: 447d281d3834f4f6ebb95e8688af33ad,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2721193663845460204, guid: 447d281d3834f4f6ebb95e8688af33ad,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.7330103
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 447d281d3834f4f6ebb95e8688af33ad, type: 3}

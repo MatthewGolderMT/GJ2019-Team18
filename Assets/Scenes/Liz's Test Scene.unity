@@ -189,6 +189,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeMech: {fileID: 8031434141454395698}
+  playerUI: {fileID: 0}
+  currentHealth: 10
   startingMech: {fileID: 0}
 --- !u!4 &160271827
 Transform:
@@ -356,6 +358,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3722171606720869316, guid: 514b3aa2cd095ae4a9a5f2d7ffe6d088,
+        type: 3}
+      propertyPath: Waves.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3722171606720869316, guid: 514b3aa2cd095ae4a9a5f2d7ffe6d088,
+        type: 3}
+      propertyPath: Waves.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0cd331e661447b549828b87887925217,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 514b3aa2cd095ae4a9a5f2d7ffe6d088, type: 3}
 --- !u!1 &553952176
@@ -588,51 +601,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8234218636942264988, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
-        type: 3}
-      propertyPath: mechFactory
-      value: 
-      objectReference: {fileID: 1375410493}
-    - target: {fileID: 1697173815533097602, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1697173815533097602, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.63968205
-      objectReference: {fileID: 0}
-    - target: {fileID: 1697173815533097602, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1697173815533097602, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
-        type: 3}
-      propertyPath: m_Color.a
-      value: 0.20392157
-      objectReference: {fileID: 0}
-    - target: {fileID: 4256588519294050644, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6217573161932030164, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
-        type: 3}
-      propertyPath: players.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6217573161932030164, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 924381825}
-    - target: {fileID: 6217573161932030164, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
-        type: 3}
-      propertyPath: players.Array.data[0]
-      value: 
-      objectReference: {fileID: 924381825}
     - target: {fileID: 4807813119474632320, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -686,6 +654,51 @@ PrefabInstance:
     - target: {fileID: 4807813119474632320, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217573161932030164, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
+        type: 3}
+      propertyPath: players.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6217573161932030164, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 924381825}
+    - target: {fileID: 6217573161932030164, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
+        type: 3}
+      propertyPath: players.Array.data[0]
+      value: 
+      objectReference: {fileID: 924381825}
+    - target: {fileID: 8234218636942264988, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
+        type: 3}
+      propertyPath: mechFactory
+      value: 
+      objectReference: {fileID: 1375410493}
+    - target: {fileID: 1697173815533097602, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697173815533097602, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.63968205
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697173815533097602, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1697173815533097602, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0.20392157
+      objectReference: {fileID: 0}
+    - target: {fileID: 4256588519294050644, guid: 4b1c692dbc7bf477fbd87c0c9d2ce524,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -917,10 +930,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c52d9b3b7edf4215b18c2c5d6d0766a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1: {fileID: 1607652793}
-  player2: {fileID: 924381825}
-  PurpleMechTemp: {fileID: 7955178816393457116, guid: 147af969cfabc4c54816e466533f6969,
-    type: 3}
 --- !u!1 &861239494
 GameObject:
   m_ObjectHideFlags: 0
@@ -1164,6 +1173,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeMech: {fileID: 861724401}
+  playerUI: {fileID: 0}
+  currentHealth: 10
   startingMech: {fileID: 0}
 --- !u!4 &924381826
 Transform:
@@ -1790,6 +1801,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeMech: {fileID: 1010661714}
+  playerUI: {fileID: 0}
+  currentHealth: 10
   startingMech: {fileID: 0}
 --- !u!4 &1607652794
 Transform:

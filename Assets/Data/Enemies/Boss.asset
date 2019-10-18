@@ -27,5 +27,5 @@ MonoBehaviour:
   BulletLifeDuration: 2
   FireCooldown: 0.2
   SpiralDegreeIncrementPerShot: 20
-  Pattern: 0
-  Colour: 4
+  Pattern: 3
+  Colour: 0
