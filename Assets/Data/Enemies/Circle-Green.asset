@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 770c0839d6a8f3646a92604fdcb182db, type: 3}
-  m_Name: Circle-Orange
+  m_Name: Circle-Green
   m_EditorClassIdentifier: 
   IsBoss: 0
   FollowsPlayer: 1
