@@ -18,10 +18,10 @@ MonoBehaviour:
   ChangesPattern: 0
   ChangesPeriod: 4
   MaxHealth: 10
-  Speed: 1.5
+  Speed: 2
   BulletSpeed: 3
   BulletLifeDuration: 4
-  FireCooldown: 0.1
+  FireCooldown: 0.25
   SpiralDegreeIncrementPerShot: 3
-  Pattern: 0
-  Colour: 1
+  Pattern: 1
+  Colour: 3
