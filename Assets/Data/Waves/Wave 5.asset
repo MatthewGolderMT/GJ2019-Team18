@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Wave 5
   m_EditorClassIdentifier: 
   WaveGroups:
-  - {fileID: 11400000, guid: d402476ccfa9f4e44be1caf89be56133, type: 2}
-  - {fileID: 11400000, guid: fd6baf638f56ad64983d82f050aaa0bd, type: 2}
-  - {fileID: 11400000, guid: ae6b89afd321699488b854f9ac79c07b, type: 2}
-  BossGroup: {fileID: 0}
+  - {fileID: 11400000, guid: d61abf626d4fda14ebdaa5ad3f1af6d7, type: 2}
+  - {fileID: 11400000, guid: 07f5c8fa9b5636540a48589e99db08c0, type: 2}
+  - {fileID: 11400000, guid: 67615a5e10419974cb21390d81c8d805, type: 2}
+  - {fileID: 11400000, guid: 95c81a6eabf0c9942a110e43fe0203cd, type: 2}
+  BossGroup: {fileID: 11400000, guid: 95c81a6eabf0c9942a110e43fe0203cd, type: 2}

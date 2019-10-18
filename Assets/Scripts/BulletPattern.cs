@@ -119,7 +119,7 @@ public class BulletPattern : MonoBehaviour
 
     private void FireCirclePattern()
     {
-        for (int degree = 0; degree < 360; degree +=20)
+        for (int degree = 0; degree < 360; degree += (int)(360f / _data.ShotsPerCircle))
         {
             SpawnBullet(Parent.position, Parent.rotation, DegToVec2(degree));
         }
