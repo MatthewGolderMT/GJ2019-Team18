@@ -384,12 +384,14 @@ MonoBehaviour:
   players: []
   Speed: 5
   BulletSpawnPosition: {fileID: 3025676945487984642}
+  SecondBulletSpawnPosition: {fileID: 0}
   BulletTemplate: {fileID: 8411116962137537062, guid: 447d281d3834f4f6ebb95e8688af33ad,
     type: 3}
   BulletForce: 50
   FireCooldown: 0.1
   MergeCircle: {fileID: 3623643503947331073}
   gun: {fileID: 7802492909526433268}
+  secondaryGun: {fileID: 0}
 --- !u!50 &760116997226630959
 Rigidbody2D:
   serializedVersion: 4
@@ -421,7 +423,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
