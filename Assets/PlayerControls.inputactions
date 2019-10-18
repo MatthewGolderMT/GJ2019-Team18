@@ -151,6 +151,63 @@
             ]
         },
         {
+            "name": "SecondaryShootControl",
+            "id": "44347361-d740-4f3f-abe7-a6de997ce70e",
+            "actions": [
+                {
+                    "name": "Shoot",
+                    "type": "Button",
+                    "id": "a716a911-a8dc-4d81-8c82-5089f4d6ad64",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Rotation",
+                    "type": "Button",
+                    "id": "9bab27a4-cdca-4394-8775-c7cee745ca12",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d4ab7120-1123-4c1a-bdda-d86b7087b724",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "Hold",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "90ea279c-701d-48b5-8596-bdc74ae4f297",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "84aa7d50-655d-4b39-a959-72a6c300653b",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Rotation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
             "name": "MergeControl",
             "id": "7ef46e5a-8bcf-4b04-9d90-63b64c77dff3",
             "actions": [

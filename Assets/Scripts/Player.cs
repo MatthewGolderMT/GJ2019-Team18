@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-	public enum MechControl { Full, Movement, Shoot }
+	public enum MechControl { Full, Movement, Shoot, SecondaryShoot }
 
 	public MechController activeMech;
 	public MechController startingMech;
@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
 	{
 		input.MovementControl.Enable();
 		input.ShootControl.Enable();
+		input.SecondaryShootControl.Enable();
 		input.MergeControl.Enable();
 	}
 
@@ -37,6 +38,7 @@ public class Player : MonoBehaviour
 	{
 		input.MovementControl.Disable();
 		input.ShootControl.Disable();
+		input.SecondaryShootControl.Disable();
 		input.MergeControl.Disable();
 	}
 
@@ -55,19 +57,27 @@ public class Player : MonoBehaviour
 				//_playerInput.SwitchCurrentActionMap("FullControl"); /// used to switch the current action map, but didn't notice the diffference
 				input.MovementControl.Enable();
 				input.ShootControl.Enable();
+				input.SecondaryShootControl.Enable();
 
 				break;
 			case MechControl.Movement:
 				//_playerInput.SwitchCurrentActionMap("MovementControl");
 				input.MovementControl.Enable();
 				input.ShootControl.Disable();
+				input.SecondaryShootControl.Disable();
 
 				break;
 			case MechControl.Shoot:
 				//_playerInput.SwitchCurrentActionMap("ShootControl");
 				input.MovementControl.Disable();
 				input.ShootControl.Enable();
+				input.SecondaryShootControl.Disable();
 
+				break;
+			case MechControl.SecondaryShoot:
+				input.SecondaryShootControl.Enable();
+				input.MovementControl.Disable();
+				input.ShootControl.Disable();
 				break;
 
 		}
@@ -87,8 +97,8 @@ public class Player : MonoBehaviour
 		input.MovementControl.Move.performed += ctx => activeMech.Move(ctx.ReadValue<Vector2>());
 		input.MovementControl.Move.canceled += ctx => activeMech.Move(new Vector2());
 
-		input.ShootControl.Rotation.performed += ctx => activeMech.Rotate(ctx.ReadValue<Vector2>());
-		input.ShootControl.Rotation.canceled += ctx => activeMech.Rotate(new Vector2());
+		input.ShootControl.Rotation.performed += ctx => activeMech.RotateGun(ctx.ReadValue<Vector2>());
+		input.ShootControl.Rotation.canceled += ctx => activeMech.RotateGun(new Vector2());
 
 		input.ShootControl.Shoot.started += ctx => activeMech.SetFiringState(true);
 		input.ShootControl.Shoot.canceled += ctx => activeMech.SetFiringState(false);
@@ -98,6 +108,12 @@ public class Player : MonoBehaviour
 
 		input.MergeControl.Disband.started += ctx => activeMech.IncrementDisbandingPlayers(1);
 		input.MergeControl.Disband.canceled += ctx => activeMech.IncrementDisbandingPlayers(-1);
+
+		input.SecondaryShootControl.Shoot.started += ctx => activeMech.SetSecondaryFiringState(true);
+		input.SecondaryShootControl.Shoot.canceled += ctx => activeMech.SetSecondaryFiringState(false);
+		input.SecondaryShootControl.Rotation.performed += ctx => activeMech.RotateSecondGun(ctx.ReadValue<Vector2>());
+		input.SecondaryShootControl.Rotation.canceled += ctx => activeMech.RotateSecondGun(new Vector2(-1, 0));
+
 
 	}
 }

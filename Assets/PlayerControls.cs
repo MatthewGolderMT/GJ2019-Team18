@@ -164,6 +164,63 @@ public class PlayerControls : IInputActionCollection, IDisposable
             ]
         },
         {
+            ""name"": ""SecondaryShootControl"",
+            ""id"": ""44347361-d740-4f3f-abe7-a6de997ce70e"",
+            ""actions"": [
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""a716a911-a8dc-4d81-8c82-5089f4d6ad64"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Rotation"",
+                    ""type"": ""Button"",
+                    ""id"": ""9bab27a4-cdca-4394-8775-c7cee745ca12"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""d4ab7120-1123-4c1a-bdda-d86b7087b724"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": ""Hold"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""90ea279c-701d-48b5-8596-bdc74ae4f297"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""84aa7d50-655d-4b39-a959-72a6c300653b"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
             ""name"": ""MergeControl"",
             ""id"": ""7ef46e5a-8bcf-4b04-9d90-63b64c77dff3"",
             ""actions"": [
@@ -246,6 +303,10 @@ public class PlayerControls : IInputActionCollection, IDisposable
         m_ShootControl = asset.FindActionMap("ShootControl", throwIfNotFound: true);
         m_ShootControl_Shoot = m_ShootControl.FindAction("Shoot", throwIfNotFound: true);
         m_ShootControl_Rotation = m_ShootControl.FindAction("Rotation", throwIfNotFound: true);
+        // SecondaryShootControl
+        m_SecondaryShootControl = asset.FindActionMap("SecondaryShootControl", throwIfNotFound: true);
+        m_SecondaryShootControl_Shoot = m_SecondaryShootControl.FindAction("Shoot", throwIfNotFound: true);
+        m_SecondaryShootControl_Rotation = m_SecondaryShootControl.FindAction("Rotation", throwIfNotFound: true);
         // MergeControl
         m_MergeControl = asset.FindActionMap("MergeControl", throwIfNotFound: true);
         m_MergeControl_Merge = m_MergeControl.FindAction("Merge", throwIfNotFound: true);
@@ -419,6 +480,47 @@ public class PlayerControls : IInputActionCollection, IDisposable
     }
     public ShootControlActions @ShootControl => new ShootControlActions(this);
 
+    // SecondaryShootControl
+    private readonly InputActionMap m_SecondaryShootControl;
+    private ISecondaryShootControlActions m_SecondaryShootControlActionsCallbackInterface;
+    private readonly InputAction m_SecondaryShootControl_Shoot;
+    private readonly InputAction m_SecondaryShootControl_Rotation;
+    public struct SecondaryShootControlActions
+    {
+        private PlayerControls m_Wrapper;
+        public SecondaryShootControlActions(PlayerControls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Shoot => m_Wrapper.m_SecondaryShootControl_Shoot;
+        public InputAction @Rotation => m_Wrapper.m_SecondaryShootControl_Rotation;
+        public InputActionMap Get() { return m_Wrapper.m_SecondaryShootControl; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(SecondaryShootControlActions set) { return set.Get(); }
+        public void SetCallbacks(ISecondaryShootControlActions instance)
+        {
+            if (m_Wrapper.m_SecondaryShootControlActionsCallbackInterface != null)
+            {
+                Shoot.started -= m_Wrapper.m_SecondaryShootControlActionsCallbackInterface.OnShoot;
+                Shoot.performed -= m_Wrapper.m_SecondaryShootControlActionsCallbackInterface.OnShoot;
+                Shoot.canceled -= m_Wrapper.m_SecondaryShootControlActionsCallbackInterface.OnShoot;
+                Rotation.started -= m_Wrapper.m_SecondaryShootControlActionsCallbackInterface.OnRotation;
+                Rotation.performed -= m_Wrapper.m_SecondaryShootControlActionsCallbackInterface.OnRotation;
+                Rotation.canceled -= m_Wrapper.m_SecondaryShootControlActionsCallbackInterface.OnRotation;
+            }
+            m_Wrapper.m_SecondaryShootControlActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                Shoot.started += instance.OnShoot;
+                Shoot.performed += instance.OnShoot;
+                Shoot.canceled += instance.OnShoot;
+                Rotation.started += instance.OnRotation;
+                Rotation.performed += instance.OnRotation;
+                Rotation.canceled += instance.OnRotation;
+            }
+        }
+    }
+    public SecondaryShootControlActions @SecondaryShootControl => new SecondaryShootControlActions(this);
+
     // MergeControl
     private readonly InputActionMap m_MergeControl;
     private IMergeControlActions m_MergeControlActionsCallbackInterface;
@@ -470,6 +572,11 @@ public class PlayerControls : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
     }
     public interface IShootControlActions
+    {
+        void OnShoot(InputAction.CallbackContext context);
+        void OnRotation(InputAction.CallbackContext context);
+    }
+    public interface ISecondaryShootControlActions
     {
         void OnShoot(InputAction.CallbackContext context);
         void OnRotation(InputAction.CallbackContext context);
