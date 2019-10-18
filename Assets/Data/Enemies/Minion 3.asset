@@ -25,4 +25,4 @@ MonoBehaviour:
   SpiralDegreeIncrementPerShot: 3
   ShotsPerCircle: 10
   Pattern: 3
-  Colour: 1
+  Colour: 5
